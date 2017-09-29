@@ -1,0 +1,93 @@
+ 1: Undeclared Variables:
+
+int main()
+{
+cin>>x;
+cout<<x;
+}
+
+"Huh? Why do I get an error?"
+
+Your compiler doesn't know what x means. You need to declare it as a variable. int main()
+{
+int x;
+cin>>x;
+cout<<x;
+}
+
+ 
+
+2: Uninitialized variables:
+
+int count;
+while(count<100)
+{
+cout<<count;
+}
+
+"Why doesn't my program enter the while loop?"
+
+In C++ variables are not initialized to zero. In the above snippet of code, count could be any value in the range of int. It might, for example, be 586, and in that situation the while loop's condition would never be true. Perhaps the output of the program would be to print the numbers from -1000 to 99. In that case, once again, the variable was assigned a memory location with garbage data that happened to evaluate to -1000.
+
+Remember to initialize your variables.
+
+ 
+
+3: Setting a variable to an uninitialized value:
+
+int a, b;
+int sum=a+b;
+cout<<"Enter two numbers to add: ";
+cin>>b;
+cout<<"The sum is: "<<sum;
+When Run:
+Enter two numbers to add: 1 3
+The sum is: -1393
+
+"What's wrong with my program?"
+
+Often beginning programmers believe that variables work like equations - if you assign a variable to equal the result of an operation on several other variables that whenever those variables change (a and b in this example), the value of the variable will change. In C++ assignment does not work this way: it's a one shot deal. Once you assign a value to a variable, it's that value until you reassign the values. In the example program, because a and b are not initialized, sum will equal an unknown random number, no matter what the user inputs.
+
+To fix this error, move the addition step after the input line. int a, b;
+int sum;
+cout<<"Enter two numbers to add: ";
+cin>>b;
+sum=a+b;
+cout<<"The sum is: "<<sum;
+
+ 
+
+4: Using a single equal sign to check equality:
+
+char x='Y';
+while(x='Y')
+{
+//...
+cout<<"Continue? (Y/N)";
+cin>>x;
+}
+
+"Why doesn't my loop ever end?"
+
+If you use a single equal sign to check equality, your program will instead assign the value on the right side of the expression to the variable on the left hand side, and the result of this statement is TRUE. Therefore, the loop will never end. Use == to check for equality; furthermore, to avoid accidental assignment, put variables on the left hand side of the expression and you'll get a compiler error if you accidentally use a single equal sign as you can't assign a value to something that isn't a variable. char x='Y';
+while('Y'==x)
+{
+//...
+cout<<"Continue? (Y/N)";
+cin>>x;
+}
+
+ 
+
+5: Undeclared Functions:
+
+int main()
+{
+menu();
+}
+void menu()
+{
+//...
+}
+
+"Why do I get an error about menu being unknown?"
