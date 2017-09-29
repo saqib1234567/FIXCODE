@@ -108,7 +108,8 @@ itsAge = ratage;
 printf("My pet is %s\n",myPet);
 }
 
-Besides the obviously bizarre choice of having a pet rat, do you notice anything? Take a close look at the variable names. There is no consistent style. Is the variable that stores good old Fido's name dogName, DogName, dog_name, dogname or Dogname? A programmer writing this code would need to constantly check to get the variable name correct. Do yourself a favor and simplify you life. Choose a consistent style for variable names and stick to it. The exact style doesn't matter but consistency does. You'll be amazed at how much faster you can develop code and how many fewer compiler errors you will get if you adopt a consistent style.
+Besides the obviously bizarre choice of having a pet rat, do you notice anything? 
+
 
 10 Misusing the && and || operators:
 
